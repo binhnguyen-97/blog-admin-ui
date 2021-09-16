@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.6.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -10,9 +11,22 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "antd": "^4.16.13",
+    "axios": "^0.21.2",
+    "classnames": "^2.3.1",
+    "draft-js": "^0.11.7",
+    "draftjs-to-html": "^0.9.1",
+    "html-to-draftjs": "^1.5.0",
+    "js-cookie": "^3.0.1",
+    "lodash": "^4.17.21",
+    "node-sass": "^6.0.1",
+    "query-string": "^7.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-draft-wysiwyg": "^1.14.7",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "sass": "^1.39.0",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
@@ -39,5 +53,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/browser-image-compression": "^1.0.9",
+    "@types/draft-js": "^0.11.5",
+    "@types/draftjs-to-html": "^0.8.1",
+    "@types/html-to-draftjs": "^1.4.0",
+    "@types/js-cookie": "^2.2.7",
+    "@types/lodash": "^4.14.172",
+    "@types/react-draft-wysiwyg": "^1.13.3",
+    "@types/react-router-dom": "^5.1.8"
   }
 }

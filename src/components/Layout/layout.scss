@@ -1,0 +1,106 @@
+.l-layout {
+  &__content {
+    min-height: calc(100vh - 64px) !important;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f0f2f5;
+    width: 100%;
+    font-weight: 400;
+  }
+
+  .c-header {
+    display: flex;
+
+    .ce-navigate-group {
+      display: flex;
+      flex-basis: 70%;
+
+      &__site-logo {
+        color: #ffffff;
+        cursor: pointer;
+        text-transform: uppercase;
+
+        &::before {
+          content: 'BD';
+          font-size: 1.2em;
+          font-weight: 900;
+          padding: 2px 7px;
+          box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+          background: #666d66;
+          border-radius: 5px;
+          margin-right: 5px;
+        }
+      }
+
+      &__brand {
+        color: #ffffffa6;
+        padding: 0 1.1rem;
+
+        .ce-brand-logo {
+          margin-right: 0.6rem;
+
+          @media screen and (max-width: 768px) {
+            display: none;
+          }
+        }
+
+        .ce-brand-dropdown {
+          margin-left: 0.7rem;
+          font-size: 0.7rem;
+        }
+      }
+
+      &__links {
+        flex: 2;
+        text-transform: capitalize;
+
+        @media screen and (max-width: 992px) {
+          max-width: 50%;
+        }
+      }
+    }
+
+    .ce-user-info {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      color: #ffffffa6;
+
+      &__icon {
+        display: inline-block;
+        height: auto;
+        font-size: 1rem;
+        padding: 0 1rem;
+
+        &:nth-child(2) {
+          margin-right: 0.8rem;
+        }
+
+        @media screen and (max-width: 992px) {
+          padding: 0 0.5rem;
+
+          &:nth-child(2) {
+            margin-right: 0.2rem;
+          }
+        }
+      }
+      &__user {
+        display: flex;
+        align-items: center;
+
+        .ce-user-name {
+          margin-left: 0.8rem;
+          max-width: 8ch;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .ce-user-dropdown {
+          margin-left: auto;
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+}

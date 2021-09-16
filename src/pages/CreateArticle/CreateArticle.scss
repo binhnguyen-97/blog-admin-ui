@@ -1,0 +1,10 @@
+.page-create-article {
+  background-color: #fff;
+  & > *:not(:first-child) {
+    margin: 1rem;
+  }
+
+  &__form {
+    padding-bottom: 2rem;
+  }
+}

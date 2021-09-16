@@ -1,0 +1,8 @@
+.c-page-header {
+  box-shadow: inset 0px -1px 0px #f0f0f0;
+  margin-bottom: 5px;
+
+  @media screen and (min-width: 2160px) {
+    padding: 1.5rem 20%;
+  }
+}

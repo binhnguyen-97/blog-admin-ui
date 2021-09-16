@@ -1,0 +1,10 @@
+.ce-text-editor {
+  &__wrapper {
+    // margin: 1rem;
+  }
+  &__textarea {
+    background: #fff;
+    min-height: 20vh;
+    border: solid 1px rgba(000, 000, 000, 0.1);
+  }
+}
