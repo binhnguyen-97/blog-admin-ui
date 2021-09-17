@@ -1,7 +1,7 @@
 import Cookies, { CookieAttributes } from "js-cookie";
 
 const cookieConfig: CookieAttributes = {
-  domain: process.env.NODE_ENV !== 'production' ? 'localhost' : '.thebidufamily.com',
+  domain: process.env.NODE_ENV !== 'production' ? 'localhost' : '',
 }
 
 export const setCookie = (key: string, value: string, expires?: number | Date) => {
