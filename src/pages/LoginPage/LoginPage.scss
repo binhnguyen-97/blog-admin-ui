@@ -1,0 +1,15 @@
+.page-login {
+  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 5rem;
+  &__form {
+    width: min(60%, 1440px);
+    margin: 0 auto;
+    padding: 5rem 2rem 2rem;
+    border: 1px solid rgba($color: #000000, $alpha: 0.2);
+  }
+  &__alert {
+    margin-top: 2rem;
+  }
+}

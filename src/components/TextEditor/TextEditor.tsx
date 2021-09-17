@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { EditorState, convertToRaw, ContentState } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
@@ -37,6 +37,16 @@ const TextEditor = ({
   }
 
   const [editorState, setEditorState] = useState(getInitialValue);
+
+  useEffect(() => {
+    if (initHtml) {
+      const contentBlock = htmlToDraft(initHtml);
+      if (contentBlock) {
+        const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
+        setEditorState(EditorState.createWithContent(contentState))
+      }
+    }
+  }, [initHtml])
 
   const handleUpdateValue = () => {
     if (typeof onUpdate === 'function') {

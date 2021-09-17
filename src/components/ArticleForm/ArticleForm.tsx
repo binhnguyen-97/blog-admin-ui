@@ -4,22 +4,25 @@ import cx from 'classnames';
 
 import TextEditor from 'components/TextEditor';
 
-import { IWriterList } from 'interfaces';
+import { CreateArticlePayload, IWriterList, IArticle } from 'interfaces';
 
 import { fetchAllWriter } from 'services/api/writer'
-import { createArticle } from 'services/api/article'
 
 import './ArticleForm.scss'
 import { Button } from 'antd';
 
-interface ArticleFormProps {
-  className?: string
+export interface ArticleFormProps {
+  className?: string,
+  handleSubmitForm: (articlePayload: CreateArticlePayload) => void,
+  initValues?: IArticle,
 }
 
 const DEFAULT_EDITOR_VALUE = "<p></p>";
 
 const ArticleForm = ({
-  className
+  className,
+  handleSubmitForm,
+  initValues,
 }: ArticleFormProps) => {
   const [form] = Form.useForm();
   const [writerList, setWriterList] = useState<IWriterList>([])
@@ -39,11 +42,22 @@ const ArticleForm = ({
     asyncLoadWriter()
   }, [])
 
+  useEffect(() => {
+    form.setFieldsValue({
+      title: initValues?.title,
+      writer: initValues?.author?.id,
+      shortDesc: initValues?.shortDescription,
+      content: initValues?.content
+    })
+    editorValueRef.current = initValues?.content as string;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initValues])
+
   const onContentUpdate = (value: string | undefined) => {
     editorValueRef.current = value as string | null
   }
 
-  const onSubmit = async (values: any) => {
+  const onSubmit = (values: any) => {
     if (!editorValueRef.current || editorValueRef?.current === DEFAULT_EDITOR_VALUE || editorValueRef?.current.length <= 10) {
       return message.error("Content can not be empty")
     }
@@ -55,24 +69,12 @@ const ArticleForm = ({
       shortDescription: values.shortDesc
     }
 
-    try {
-      await createArticle(articlePayload);
-
-      message.success("Create article success")
-    } catch (error: any) {
-      message.error("Fail to create article with error: " + error.toString())
-    }
+    return handleSubmitForm(articlePayload)
   }
 
   const getWriterProps = (value: any) => {
     return {
       value: typeof value === 'string' ? value : value?.id
-    }
-  }
-
-  const getContentValueProps = (Value: string) => {
-    return {
-      initHtml: Value
     }
   }
 
@@ -109,7 +111,7 @@ const ArticleForm = ({
       <Form.Item
         name="content"
         label="Content"
-        getValueProps={getContentValueProps}
+        valuePropName="initHtml"
         required
       >
         <TextEditor

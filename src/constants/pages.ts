@@ -6,5 +6,7 @@ export const PAGE_PATH = {
   [PAGES.ARTICLE_DETAIL]: "/articles/",
   [PAGES.USER]: "/users",
   [PAGES.WRITER]: "/writers",
-  [PAGES.CREATE_ARTICLE]: "/create-article"
+  [PAGES.CREATE_ARTICLE]: "/create-article",
+  [PAGES.LOGIN]: "/login",
+  [PAGES.EDIT]: "/edit/:type/:id"
 }

@@ -1,7 +1,8 @@
 import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 import isEmpty from 'lodash/isEmpty';
 import { stringify } from 'query-string';
-import Cookies from 'js-cookie';
+
+import { getCookie } from 'services/utils/cookies'
 
 export function isAxiosError<T>(error: Error | AxiosError<T>): error is AxiosError<T> {
   return (error as AxiosError<T>).isAxiosError !== undefined;
@@ -31,7 +32,7 @@ export const axiosClient = axios.create({
 
 axiosClient.interceptors.request.use(
   (config) => {
-    const privateToken = Cookies.get("privateToken")
+    const privateToken = getCookie("privateToken")
 
     let headers: { [key: string]: string } = {
     }

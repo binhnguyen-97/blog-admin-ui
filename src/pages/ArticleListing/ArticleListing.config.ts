@@ -5,7 +5,7 @@ interface creatorProps {
   renderAuthor: (text: string, record: any) => any,
   renderDescription: (text: string, record: any) => any,
   renderLastEdit: (text: string, record: any) => any,
-  renderActionGroup: (text: string, record: any) => any,
+  renderActionGroup: (record: any) => any,
 }
 
 export const articleColumnsCreator = ({
@@ -24,8 +24,8 @@ export const articleColumnsCreator = ({
     },
     {
       title: 'Description',
-      dataIndex: 'description',
-      key: 'description',
+      dataIndex: 'shortDescription',
+      key: 'shortDescription',
       render: renderDescription
     },
     {

@@ -3,7 +3,8 @@ import { IWriter } from './writer';
 export interface IArticle {
   id: string,
   title: string,
-  description: string,
+  shortDescription: string,
+  content: string,
   createdAt: string,
   updatedAt: string,
   author: IWriter,
